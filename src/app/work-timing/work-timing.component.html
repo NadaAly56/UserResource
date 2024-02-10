@@ -1,0 +1,34 @@
+<div class="box p-3 my-4 align-items-center">
+
+  <div class="row">
+    <div class="col-8">
+      <h3 class="title">
+        {{'set_work_hours' | translate}}
+      </h3>
+      <p>
+        {{'configure_week_settings' | translate}}
+            </p>
+    </div>
+    <div class="col-4 d-flex align-items-center justify-content-center">
+      <div class="switch-buttons w-100">
+        <button (click)="setSettings('advanced')" class="btn" [class.btn-primary]="setting==='advanced'">
+          {{'advanced_settings' | translate}}
+        </button>
+        <button (click)="setSettings('regular')" class="btn" [class.btn-primary]="setting==='regular'">
+          {{'traditional_settings' | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="lan == 'rtl'">
+  <div *ngFor="let day of days" class="mb-5">
+    <app-week-days day={{day}}></app-week-days>
+  </div>
+</div>
+<div *ngIf="lan == 'ltr'">
+  <div *ngFor="let day of daysEn" class="mb-5">
+    <app-week-days day={{day}}></app-week-days>
+  </div>
+</div>
+</div>
+

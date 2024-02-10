@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-12">
+    <div class="row align-items-start">
+      <div class="col-2 d-flex align-items-center">
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="flexSwitchCheckDefault"
+            [(ngModel)]="isSelected"
+          />
+        </div>
+        <label class="mx-4" for="flexSwitchCheckDefault">{{ day }}</label>
+      </div>
+      <div *ngIf="isSelected"  class="col-8">
+        <div *ngFor="let _ of [].constructor(num); let i = index" class="row mb-3">
+
+          <div class="col-5 position-relative ms-3">
+            <p>
+              {{'start_time' | translate}}
+            </p>
+            <app-time-picker></app-time-picker>
+          </div>
+          <div class="col-5" *ngIf="i<1; else minusCase">
+            <div *ngIf="isSelected" class="col-12 position-relative">
+              <p>
+                {{'end_time' | translate}}
+              </p>
+              <div class="w-100 d-flex align-items-center">
+                <app-time-picker class="w-100 mx-3"></app-time-picker>
+              <div class="add" (click)="addTimePicker()">+</div>
+              </div>
+            </div>
+          </div >
+          <ng-template #minusCase>
+            <div *ngIf="isSelected" class="col-5 position-relative">
+              <p>
+                {{'end_time' | translate}}
+              </p>
+              <div class="w-100 d-flex align-items-center">
+                <app-time-picker class="w-100 mx-3"></app-time-picker>
+              <div class="add" (click)="decreasTimePicker()">-</div>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+
+      </div>
+
+      <div *ngIf="isSelected"  class="col-2 mt-3">
+      <div class="copy">
+        <svg xmlns="http://www.w3.org/2000/svg" width="53" height="53" viewBox="0 0 53 53" fill="none">
+          <rect width="53" height="53" rx="10" fill="#0771DE" fill-opacity="0.1"/>
+          <path d="M32.8713 35.3316H24.3987C22.4419 35.3316 20.85 33.7246 20.85 31.7492V19.6138C20.85 17.6384 22.4419 16.0314 24.3987 16.0314H32.8713C34.8281 16.0314 36.42 17.6384 36.42 19.6138V31.7492C36.42 33.7246 34.8281 35.3316 32.8713 35.3316ZM24.3987 17.8226C23.4204 17.8226 22.6244 18.6262 22.6244 19.6138V31.7492C22.6244 32.7368 23.4204 33.5404 24.3987 33.5404H32.8713C33.8496 33.5404 34.6457 32.7368 34.6457 31.7492V19.6138C34.6457 18.6262 33.8496 17.8226 32.8713 17.8226H24.3987ZM39.9688 29.5102V15.9866C39.9688 14.0112 38.3768 12.4042 36.42 12.4042H26.5723C26.0823 12.4042 25.6851 12.8051 25.6851 13.2998C25.6851 13.7945 26.0823 14.1954 26.5723 14.1954H36.42C37.3984 14.1954 38.1944 14.999 38.1944 15.9866V29.5102C38.1944 30.0049 38.5915 30.4058 39.0816 30.4058C39.5716 30.4058 39.9688 30.0049 39.9688 29.5102Z" fill="#0771DE"/>
+        </svg>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>

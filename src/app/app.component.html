@@ -1,0 +1,24 @@
+<div class="container" [appDir]="appDir">
+  <div class="row w-25 mb-3">
+    <div class="col-2 ms-3" (click)="rtl()">
+      <Button (click)="translate.use('ar')" class="btn btn-info">AR</Button>
+    </div>
+    <div class="col-2" (click)="ltr()">
+      <Button (click)="translate.use('en')" class="btn btn-info">EN</Button>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <app-header [lan]="appDir"></app-header>
+    <div class="row justify-content-between">
+      <div class="col-md-6 col-12">
+        <app-resource></app-resource>
+        <app-reserveration></app-reserveration>
+      </div>
+      <div class="col-md-6 col-12 ps-0">
+        <app-resource-timing></app-resource-timing>
+      </div>
+    </div>
+    <app-work-timing [lan]="appDir"></app-work-timing>
+  </div>
+
+</div>
